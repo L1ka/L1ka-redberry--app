@@ -4,10 +4,35 @@ import { useNavigate } from "react-router-dom";
 import MainHeader from "./MainHeader";
 
 export default function UserInfo() {
+  const getFormValues = function () {
+    const storedValues = localStorage.getItem("save--onType--user");
+    if (!storedValues) {
+      return {
+        name: "",
+        surname: "",
+        team_id: "",
+        position_id: "",
+        email: "",
+        phone_number: "",
+        token: "3c404d1821d9eb1f73df1b483c347bae",
+      };
+    }
 
+    return JSON.parse(storedValues);
   };
-  const [formValues, setFormValues] = React.useState();
+
+  const [formValues, setFormValues] = React.useState(getFormValues);
   const [formErrors, setFormErrors] = React.useState({});
+
+  React.useEffect(() => {
+    localStorage.setItem("save--onType--user", JSON.stringify(formValues));
+  }, [formValues]);
+
+  const handleValueChange = function (e) {
+    const { name, value } = e.target;
+
+    setFormValues({ ...formValues, [name]: value });
+  };
 
   const [team, setTeam] = React.useState([]);
   const [position, setPosition] = React.useState([]);
@@ -78,7 +103,7 @@ export default function UserInfo() {
         </section>
         <section className="testimonial">
           <DropDown
-            name="team_id"           
+            name="team_id"
             onChange={onChange}
             data={team}
             data2={position}
@@ -127,6 +152,7 @@ export default function UserInfo() {
           </button>
         </section>
       </form>
+      <img className="footer--image" src="../images/LOGO-10 2.svg"></img>
     </div>
   );
 }
