@@ -827,4 +827,123 @@ input:focus::placeholder {
   ul li {
     width: 358px;
   }
+
+  /*----------------------------------------*/
+
+  .mobile--title {
+    display: block;
+  }
+
+  .laptop--frame {
+    grid-gap: 30px;
+    grid-template-columns: repeat(2, 160px);
+    width: 100vw;
+    height: 1750px;
+    margin-top: 27px;
+    margin-bottom: 0;
+    padding: 4%;
+  }
+
+  .image--upload {
+    grid-column: 1/3;
+    width: 358px;
+    height: 244px;
+  }
+
+  .laptop--name {
+    grid-column: 1/3;
+  }
+
+  .laptop--brand {
+    grid-column: 1/3;
+    grid-row: 3/4;
+  }
+
+  .first {
+    grid-column: 1/3;
+  }
+  .three--input {
+    grid-row: 4/5;
+    grid-column: 1/3;
+    grid-gap: 40px;
+    display: grid;
+  }
+
+  .laptop--CPU {
+    width: 358px;
+  }
+
+  .laptop--RAM {
+    grid-row: 5/6;
+    grid-column: 1/3;
+  }
+
+  .laptop--memory {
+    grid-column: 1/3;
+    grid-row: 6/7;
+  }
+
+  .laptop--purchase--date {
+    grid-column: 1/3;
+    grid-row: 7/8;
+  }
+
+  .laptop--price {
+    grid-column: 1/3;
+    grid-row: 8/9;
+  }
+
+  .laptop--condition {
+    grid-column: 1/3;
+    grid-row: 9/10;
+  }
+
+  .prev--button {
+    grid-row: 10/11;
+    padding-top: 2rem;
+  }
+
+  .button {
+    grid-column: 2;
+    grid-row: 10/11;
+
+    align-items: flex-start;
+  }
+
+  .laptop--info--next--btn {
+    width: 160px;
+    height: 50px;
+  }
+
+  .image--upload--text {
+    display: none;
+  }
+
+  .upload--mobile--text {
+    display: block;
+    margin-bottom: -5rem;
+    position: absolute;
+  }
+
+  .error--icon {
+    margin-top: 15rem;
+    position: static;
+    width: 30px;
+  }
+
+  .image--upload label {
+    background-color: transparent;
+    color: transparent;
+    font-weight: 18px;
+    position: absolute;
+    background: 50% 35% no-repeat url("../public/images/camera\ icon.svg");
+    width: 358px;
+    height: 244px;
+  }
+
+  .uploaded_image {
+    position: block;
+    width: 358px;
+    height: 244px;
+  }
 }
