@@ -1,5 +1,7 @@
 import React from "react";
 import Landing from "./components/Landing";
+import UserInfo from "./components/UserInfo";
+import LaptopInfo from "./components/LaptopInfo";
 
 import { Routes, Route } from "react-router-dom";
 
