@@ -38,6 +38,29 @@ export default function LaptopInfo(prop) {
     });
   };
 
+  const [brand, setBrand] = React.useState([]);
+  const [CPU, setCPU] = React.useState([]);
+
+  React.useEffect(() => {
+    const getData = async () => {
+      const res = await fetch("https://pcfy.redberryinternship.ge/api/brands");
+      const { data } = await res.json();
+
+      setBrand(data);
+    };
+    getData();
+  }, []);
+
+  React.useEffect(() => {
+    const getData = async () => {
+      const res = await fetch("https://pcfy.redberryinternship.ge/api/cpus");
+      const { data } = await res.json();
+
+      setCPU(data);
+    };
+    getData();
+  }, []);
+
   const [baseImage, setBaseImage] = React.useState({ selectedFile: null });
 
   const [image, setImage] = React.useState();
