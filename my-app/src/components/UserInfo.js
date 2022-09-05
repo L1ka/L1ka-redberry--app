@@ -29,6 +29,23 @@ export default function UserInfo() {
               : "მინიმუმ 2 სიმბოლო, ქართული ასოები"}
           </h5>
         </section>
+        <section
+          className={`testimonial section ${formErrors.surname ? "error" : ""}`}
+        >
+          <label className="bold">გვარი</label>
+          <input
+            type="text"
+            name="surname"
+            value={formValues.surname}
+            onChange={handleValueChange}
+            autoComplete="off"
+          ></input>
+          <h5 className="light">
+            {formErrors.surname
+              ? formErrors.surname
+              : "მინიმუმ 2 სიმბოლო, ქართული ასოები"}
+          </h5>
+        </section>
       </form>
     </div>
   );
