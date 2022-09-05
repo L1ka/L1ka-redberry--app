@@ -33,3 +33,51 @@
 .lowercase {
   font-family: HelveticaNeue;
 }
+
+/* ---------------- Landing-------------------*/
+
+.header {
+  display: flex;
+  margin-top: 80px;
+  font-size: 34px;
+}
+.header img {
+  position: absolute;
+  left: 70px;
+}
+
+.landing--page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.redberry--logo {
+  margin-top: 79px;
+}
+.landing--image {
+  margin-top: 130px;
+  display: block;
+}
+
+.landing--image--mobile {
+  display: none;
+}
+
+.landing--add--button {
+  margin-top: 133px;
+}
+
+.landing--list--button {
+  margin-top: 26px;
+}
+
+.landing--add--button,
+.landing--list--button {
+  width: 387px;
+  height: 60px;
+  border-radius: 8px;
+  background-color: #62a1eb;
+  font-size: 20px;
+  color: #ffffff;
+}
