@@ -533,6 +533,57 @@ input:focus::placeholder {
   margin-top: -3.5rem;
 }
 
+/*------------------------------------------------------------------------*/
+
+.last--page--container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4a4a4a;
+  height: 1080px;
+  width: 1920px;
+}
+
+.last--page--frame {
+  background-color: #fff;
+  width: 847px;
+  height: 537px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.last--page--frame img {
+  margin-top: -10%;
+}
+
+.last--page--title {
+  margin-top: 0%;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.btn--for--list {
+  background-color: #62a1eb;
+  width: 300px;
+  height: 60px;
+  border-radius: 8px;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  margin-top: 43px;
+  float: right;
+  cursor: pointer;
+}
+
+.btn--for--landing {
+  color: #0089a7;
+  font-size: 20px;
+  margin-top: 28px;
+}
+
 /*mobile....................*/
 
 @media (max-width: 390px) and (-webkit-min-device-pixel-ratio: 3) {
