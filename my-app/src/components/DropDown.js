@@ -1,6 +1,43 @@
 import React from "react";
 
 export default function DropDown(prop) {
+  const getTeam = function () {
+    const storedValues = localStorage.getItem("team");
+
+    if (storedValues === "undefined") return "თიმი";
+    return JSON.parse(storedValues);
+  };
+
+  const getPosition = function () {
+    const storedValues = localStorage.getItem("position");
+
+    if (storedValues === "undefined") return "პოზიცია";
+    return JSON.parse(storedValues);
+  };
+
+  const getOptions = function () {
+    const storedValues = localStorage.getItem("position_options");
+
+    if (storedValues === "undefined") return;
+    return JSON.parse(storedValues);
+  };
+
+  const [team, setTeam] = React.useState(getTeam);
+  const [position, setPosition] = React.useState(getPosition);
+
+  const [positionValue, setPositionValue] = React.useState(getOptions);
+
+  React.useEffect(() => {
+    localStorage.setItem("team", JSON.stringify(team));
+  }, [team]);
+
+  React.useEffect(() => {
+    localStorage.setItem("position", JSON.stringify(position));
+  }, [position]);
+
+  React.useEffect(() => {
+    localStorage.setItem("position_options", JSON.stringify(positionValue));
+  }, [positionValue]);
   return (
     <div>
       <div
