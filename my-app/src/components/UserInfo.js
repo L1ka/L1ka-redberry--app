@@ -87,6 +87,45 @@ export default function UserInfo() {
             id="team_id"
           />
         </section>
+        <section className={` testimonial ${formErrors.email ? "error" : ""}`}>
+          <label className="bold">მეილი</label>
+          <input
+            type="text"
+            className="email"
+            name="email"
+            autoComplete="off"
+            value={formValues.email}
+            onChange={handleValueChange}
+          ></input>
+          <h5 className="light">
+            {formErrors.email
+              ? formErrors.email
+              : "უნდა მთავრდებოდეს @redberry.ge-ით"}
+          </h5>
+        </section>
+        <section
+          className={`testimonial  ${formErrors.phone_number ? "error" : ""}`}
+        >
+          <label className="bold">ტელეფონის ნომერი</label>
+          <input
+            type="text"
+            className="phone_number"
+            name="phone_number"
+            value={formValues.phone_number}
+            onChange={handleValueChange}
+            autoComplete="off"
+          ></input>
+          <h5>
+            {formErrors.phone_number
+              ? formErrors.phone_number
+              : "უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს"}
+          </h5>
+        </section>
+        <section className="testimonial button">
+          <button type="subbmit" className="personal--info--next--btn">
+            შემდეგი
+          </button>
+        </section>
       </form>
     </div>
   );
