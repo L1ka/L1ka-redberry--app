@@ -8,6 +8,8 @@ export default function App() {
     <>
       <Routes>
         <Route path="/" element={<Landing />} />
+        <Route path="/userinfo" element={<UserInfo />} />
+        <Route path="/laptopinfo" element={<LaptopInfo />} />
       </Routes>
     </>
   );
