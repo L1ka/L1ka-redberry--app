@@ -81,3 +81,30 @@
   font-size: 20px;
   color: #ffffff;
 }
+
+/*mobile....................*/
+
+@media (max-width: 390px) and (-webkit-min-device-pixel-ratio: 3) {
+  .landing--image {
+    display: none;
+  }
+  .landing--image--mobile {
+    display: block;
+    width: 270px;
+    height: 350px;
+    margin-top: 117px;
+  }
+
+  .landing--add--button,
+  .landing--list--button {
+    width: 358px;
+  }
+  .landing--page {
+    width: 390px;
+    height: 844px;
+  }
+
+  .redberry--logo {
+    margin-top: 65px;
+  }
+}
