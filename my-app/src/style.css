@@ -756,4 +756,75 @@ input:focus::placeholder {
   .redberry--logo {
     margin-top: 65px;
   }
+
+  .personal--info--container {
+    width: 390px;
+  }
+
+  .section input,
+  .section select,
+  .phone_number,
+  .email,
+  .team select,
+  .position {
+    width: 358px;
+  }
+  .form {
+    display: grid;
+    grid-gap: 47px;
+    grid-template-columns: 1fr;
+    margin-right: 0px;
+    height: 920px;
+    margin-top: 33px;
+    margin-bottom: 0%;
+    width: 100%;
+    padding: 4%;
+  }
+  .testimonial:nth-child(1),
+  .testimonial:nth-child(2),
+  .testimonial:nth-child(3),
+  .testimonial:nth-child(4),
+  .testimonial:nth-child(5) {
+    grid-column: 1;
+  }
+
+  .testimonial:nth-child(6) {
+    grid-column: 1;
+    grid-row: 6/7;
+  }
+
+  .laptop--info--active {
+    display: none;
+  }
+
+  .personal--info--active {
+    display: none;
+    margin-right: 0px;
+  }
+
+  .footer--image {
+    display: none;
+  }
+
+  .personal--info--next--btn {
+    width: 130px;
+    height: 50px;
+    font-size: 12px;
+    margin-top: 43px;
+    margin-bottom: 58px;
+  }
+  .line {
+    display: none;
+  }
+
+  .prev--btn {
+    display: none;
+  }
+  .prev--btn--mobile {
+    display: block;
+  }
+
+  ul li {
+    width: 358px;
+  }
 }
