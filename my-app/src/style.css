@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: HelveticaNeue;
+}
+
+@font-face {
+  font-family: HelveticaNeue;
+  src: url(../styles/HelveticaNeue-01.ttf);
+}
+
+@font-face {
+  font-family: HelveticaNeueBold;
+  src: url(../styles/HelveticaNeue-Bold-02.ttf);
+}
+
+@font-face {
+  font-family: HelveticaNeueLight;
+  src: url(../styles/HelveticaNeue-Light-08.ttf);
+}
+
+.bold {
+  font-family: HelveticaNeueBold;
+}
+.light {
+  font-family: HelveticaNeueLight;
+}
+.uppercase {
+  font-family: HelveticaNeue;
+  font-variant-caps: all-small-caps;
+  font-size: 24px;
+}
+.lowercase {
+  font-family: HelveticaNeue;
+}
