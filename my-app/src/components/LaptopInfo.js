@@ -23,7 +23,6 @@ export default function LaptopInfo(prop) {
   };
   const [formValues, setFormValues] = React.useState(getFormValues);
   const [formErrors, setFormErrors] = React.useState({});
-  const [isSubmit, setIsSubmit] = React.useState(false);
 
   React.useEffect(() => {
     localStorage.setItem("save--onType--laptop", JSON.stringify(formValues));
@@ -60,6 +59,103 @@ export default function LaptopInfo(prop) {
     };
     getData();
   }, []);
+
+  React.useEffect(() => {
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      navigate("/lastpage");
+      console.log(prop);
+    }
+  }, [formErrors]);
+
+  const userInfoPage = function (e) {
+    e.preventDefault();
+
+    navigate("/userinfo");
+  };
+
+  const handleSubmit = function (e) {
+    e.preventDefault();
+
+    setFormErrors(validate(formValues));
+
+    const fd = new FormData();
+    fd.append("laptop_image", baseImage.selectedFile);
+
+    function getFormData(object) {
+      Object.keys(object).forEach((key) => fd.append(key, object[key]));
+    }
+
+    const userInfo = JSON.parse(localStorage.getItem("save--onType--user"));
+    getFormData(formValues);
+
+    getFormData(userInfo);
+
+    axios
+      .post("https://pcfy.redberryinternship.ge/api/laptop/create", fd)
+      .then((res) => console.log(res));
+    console.log(formValues, userInfo);
+  };
+
+  React.useEffect(() => {
+    console.log(formErrors);
+    if (Object.keys(formErrors).length === 0) {
+      window.localStorage.removeItem("save--onType--user");
+      window.localStorage.removeItem("save--onType--laptop");
+      window.localStorage.removeItem("team");
+      window.localStorage.removeItem("position");
+      navigate("/lastpage");
+    }
+  });
+
+  const validate = (values) => {
+    const errors = {};
+    const symbols = new RegExp("^[A-Za-z0-9!@#$%^&*()_+=]*$");
+
+    // const laptopImage = values.laptop_image;
+    console.log(values);
+    const number = new RegExp("^[0-9]*$");
+
+    if (!(values.laptop_image || image)) errors.laptop_image = true;
+
+    if (!values.laptop_brand_id) errors.laptop_brand_id = true;
+    if (!values.laptop_cpu) errors.laptop_cpu = true;
+    //console.log(baseImage.selectedFile.name);
+    if (!values.laptop_name) {
+      errors.laptop_name = "სავალდებულო ველი";
+    } else if (!values.laptop_name.match(symbols)) {
+      errors.laptop_name = "არ აკმაყოფილებს ფორმატს";
+    }
+
+    if (!values.laptop_cpu_cores) {
+      errors.laptop_cpu_cores = "სავალდებულო ველი";
+    } else if (!values.laptop_cpu_cores.match(number)) {
+      console.log(values.laptop_cpu_cores);
+      errors.laptop_cpu_cores = "მხოლოდ ციფრები";
+    }
+
+    if (!values.laptop_cpu_threads) {
+      errors.laptop_cpu_threads = "სავალდებულო ველი";
+    } else if (!values.laptop_cpu_threads.match(number)) {
+      errors.laptop_cpu_threads = "მხოლოდ ციფრები";
+    }
+
+    if (!values.laptop_ram) {
+      errors.laptop_ram = "სავალდებულო ველი";
+    } else if (!values.laptop_ram.match(number)) {
+      errors.laptop_ram = "მხოლოდ ციფრები";
+    }
+
+    if (!values.laptop_hard_drive_type) errors.laptop_hard_drive_type = true;
+    if (!values.laptop_state) errors.laptop_state = true;
+
+    if (!values.laptop_price) {
+      errors.laptop_price = "სავალდებულო ველი";
+    } else if (!values.laptop_price.match(number)) {
+      errors.laptop_price = "მხოლოდ ციფრები";
+    }
+
+    return errors;
+  };
 
   const [baseImage, setBaseImage] = React.useState({ selectedFile: null });
 
