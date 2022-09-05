@@ -64,6 +64,60 @@ export default function UserInfo() {
     setFormValues({ ...formValues, [name]: value });
   };
 
+  const navigate = useNavigate();
+
+  const handleSubmit = function (e) {
+    e.preventDefault();
+
+    setFormErrors(validate(formValues));
+    setIsSubmit(true);
+  };
+
+  React.useEffect(() => {
+    if (Object.keys(formErrors).length === 0) {
+      navigate("/laptopinfo");
+    }
+  });
+
+  const validate = (values) => {
+    const errors = {};
+    const email = new RegExp("[a-z0-9]+@redberry.ge");
+    const georgian = new RegExp(/^[ა-ჰ]+$/);
+    const phone_number = new RegExp(/^\+995(?:[0-9] ?){8}[0-9]$/);
+
+    if (!values.name) {
+      errors.name = "სავალდებულო ველი!";
+    } else if (values.name.length < 2) {
+      errors.name = "სავალდებულოა მინიმუმ 2 სიმბოლო!";
+    } else if (!georgian.test(values.name)) {
+      errors.name = "გამოიყენეთ ქართული ასოები";
+      console.log(errors);
+    }
+    if (!values.surname) {
+      errors.surname = "სავალდებულო ველი!";
+    } else if (values.surname.length < 2) {
+      errors.surname = "სავალდებულოა მინიმუმ 2 სიმბოლო!";
+    } else if (!values.surname.match(georgian)) {
+      errors.surname = "გამოიყენეთ ქართული ასოები";
+    }
+    if (!values.team_id) errors.team_id = true;
+    if (!values.position_id) errors.position_id = true;
+
+    if (!values.email) {
+      errors.email = "სავალდებულო ველი!";
+    } else if (!values.email.match(email)) {
+      errors.email = "მეილი არ აკმაყოფილებს ფორმატს!";
+    }
+
+    if (!values.phone_number) {
+      errors.phone_number = "სავალდებულო ველი!";
+    } else if (!values.phone_number.match(phone_number)) {
+      errors.phone_number = "ნომერი არ აკმაყოფილებს ფორმატს!";
+    }
+
+    return errors;
+  };
+
   return (
     <div className="personal--info--container">
       <MainHeader id="user" handleSubmit={handleSubmit} />
